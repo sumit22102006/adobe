@@ -78,7 +78,7 @@ export default function HomePage() {
             </span>
             Adobe
           </Link>
-          <nav className="flex gap-5">
+          <nav className="hidden md:flex gap-5">
             {['Creativity & Design', 'PDF & E-signatures', 'Marketing & Commerce', 'Learn & Support'].map((item) => (
               <a key={item} href="#" className="text-sm font-medium text-gray-700 hover:text-adobe-dark transition-colors no-underline">
                 {item} <span className="text-gray-400 ml-1 text-xs">⌄</span>
@@ -86,13 +86,13 @@ export default function HomePage() {
             ))}
           </nav>
         </div>
-        <div className="flex items-center gap-5">
-          <div className="bg-gray-100 rounded-full px-4 py-2 flex items-center w-[250px] border border-transparent focus-within:border-adobe-link focus-within:bg-white transition-all">
-            <span className="text-gray-400 text-sm mr-2">🔍</span>
-            <input type="text" placeholder="Search Adobe" className="bg-transparent border-none outline-none text-sm w-full" />
+        <div className="flex items-center gap-3 md:gap-5">
+          <div className="bg-gray-100 rounded-full md:px-4 py-2 px-3 flex items-center w-auto md:w-[250px] border border-transparent focus-within:border-adobe-link focus-within:bg-white transition-all">
+            <span className="text-gray-400 text-sm md:mr-2">🔍</span>
+            <input type="text" placeholder="Search Adobe" className="hidden md:block bg-transparent border-none outline-none text-sm w-full" />
           </div>
-          <div className="flex items-center gap-4">
-            <span className="cursor-pointer text-gray-500 text-lg hover:text-adobe-dark transition-colors">?</span>
+          <div className="flex items-center gap-3 md:gap-4">
+            <span className="hidden sm:block cursor-pointer text-gray-500 text-lg hover:text-adobe-dark transition-colors">?</span>
             <span className="cursor-pointer text-gray-500 text-lg hover:text-adobe-dark transition-colors">▦</span>
             <div className="w-8 h-8 bg-[#003366] rounded-full border-2 border-white shadow-sm cursor-pointer hover:scale-110 transition-transform" />
           </div>
@@ -102,7 +102,7 @@ export default function HomePage() {
       {/* App Container */}
       <div className="flex flex-1 overflow-hidden">
         {/* Left Sidebar */}
-        <aside className="w-[60px] bg-white border-r border-adobe-border flex flex-col items-center pt-4 gap-2 flex-shrink-0">
+        <aside className="hidden md:flex w-[60px] bg-white border-r border-adobe-border flex-col items-center pt-4 gap-2 flex-shrink-0">
           {sidebarItems.map((item) => (
             <div
               key={item.label}
@@ -122,7 +122,7 @@ export default function HomePage() {
         </aside>
 
         {/* Main Canvas */}
-        <main className="flex-1 overflow-y-auto bg-white px-8 py-8">
+        <main className="flex-1 overflow-y-auto bg-white px-4 py-6 md:px-8 md:py-8">
           {/* Hero Section */}
           <section className="relative rounded-2xl p-10 mb-10 overflow-hidden">
             <div
@@ -134,23 +134,23 @@ export default function HomePage() {
 
               {/* AI Generate Bar */}
               <div className="bg-white rounded-full p-1.5 flex items-center shadow-lg max-w-[700px] mx-auto mb-10 hover:shadow-xl transition-shadow duration-300">
-                <div className="flex items-center px-4 border-r border-gray-100 gap-2 font-semibold text-sm whitespace-nowrap">
+                <div className="hidden sm:flex items-center px-4 border-r border-gray-100 gap-2 font-semibold text-sm whitespace-nowrap">
                   <span>🖼️</span>
                   <span>Image</span>
                   <span className="text-gray-400 text-xs">⌄</span>
                 </div>
                 <input
                   type="text"
-                  placeholder="Describe the image you want to generate"
-                  className="flex-1 border-none outline-none px-4 py-2.5 text-sm"
+                  placeholder="Describe the image..."
+                  className="flex-1 border-none outline-none px-4 py-2 text-sm md:py-2.5 min-w-[120px]"
                 />
-                <button className="bg-adobe-link text-white rounded-full px-6 py-2.5 font-semibold text-sm hover:bg-[#0054b6] transition-all duration-300 hover:shadow-lg hover:shadow-blue-300/30 cursor-pointer">
+                <button className="bg-adobe-link text-white rounded-full px-4 py-2 md:px-6 md:py-2.5 font-semibold text-sm hover:bg-[#0054b6] transition-all duration-300 hover:shadow-lg hover:shadow-blue-300/30 cursor-pointer whitespace-nowrap">
                   ✨ Generate
                 </button>
               </div>
 
               {/* Promo Cards */}
-              <div className="flex gap-5 justify-center">
+              <div className="flex flex-col lg:flex-row gap-5 justify-center">
                 {promoCards.map((card, i) => (
                   <div
                     key={card.name}
@@ -198,7 +198,7 @@ export default function HomePage() {
           </div>
 
           {/* Action Cards Grid */}
-          <div className="grid grid-cols-4 gap-5 mb-16">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-16">
             {actionCards.map((card, i) => (
               <div
                 key={i}
@@ -229,7 +229,7 @@ export default function HomePage() {
           </div>
 
           {/* Footer */}
-          <footer className="border-t border-adobe-border pt-10 flex gap-20 pb-10">
+          <footer className="border-t border-adobe-border pt-10 flex flex-col md:flex-row flex-wrap gap-10 md:gap-20 pb-10">
             {footerCols.map((col) => (
               <div key={col.title} className="flex flex-col gap-3">
                 <h5 className="text-sm font-semibold text-adobe-dark mb-1">{col.title}</h5>
@@ -254,7 +254,7 @@ export default function HomePage() {
         </main>
 
         {/* Right Sidebar */}
-        <aside className="w-[280px] bg-white border-l border-adobe-border p-5 flex flex-col flex-shrink-0">
+        <aside className="hidden lg:flex w-[280px] bg-white border-l border-adobe-border p-5 flex-col flex-shrink-0">
           <div className="flex justify-between items-center mb-10">
             <h3 className="text-sm font-semibold text-adobe-dark">Recent files</h3>
             <div className="flex gap-4 text-gray-500 cursor-pointer">

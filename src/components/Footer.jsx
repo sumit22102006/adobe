@@ -22,7 +22,7 @@ export default function Footer() {
   return (
     <footer ref={ref} className={`w-full bg-adobe-light px-10 py-12 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
       {/* Link Columns */}
-      <div className="flex justify-between gap-8 mb-12 flex-wrap">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 mb-12">
         {Object.entries(footerLinks).map(([title, links]) => (
           <ul key={title} className="space-y-2.5">
             <p className="text-sm font-semibold text-adobe-dark mb-3">{title}</p>
@@ -38,7 +38,7 @@ export default function Footer() {
       <hr className="border-gray-300 mb-6" />
 
       {/* Featured Products */}
-      <div className="flex items-center justify-center gap-6 mb-6">
+      <div className="flex flex-wrap items-center justify-center gap-4 md:gap-6 mb-6">
         <span className="text-sm font-bold text-gray-500">Featured products:</span>
         {featuredProducts.map((product) => (
           <div key={product.name} className="flex items-center gap-2 group cursor-pointer">
@@ -53,7 +53,7 @@ export default function Footer() {
       <hr className="border-gray-300 mb-6" />
 
       {/* Bottom */}
-      <div className="flex justify-between items-center flex-wrap gap-4">
+      <div className="flex flex-col lg:flex-row justify-between items-center gap-4 lg:gap-8 text-center lg:text-left">
         <div className="flex items-center gap-3">
           <div className="flex items-center gap-1 text-sm text-gray-500 cursor-pointer hover:text-adobe-dark transition-colors">
             <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" /></svg>

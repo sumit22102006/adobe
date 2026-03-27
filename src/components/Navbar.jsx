@@ -35,7 +35,7 @@ export default function Navbar() {
   return (
     <header className="w-full h-16 flex items-center bg-white sticky top-0 left-0 z-50 px-4 shadow-sm animate-fade-in-down">
       {/* Logo */}
-      <Link to="/" className="flex items-center gap-2 w-[10%] min-w-[100px]">
+      <Link to="/" className="flex items-center gap-2 w-auto md:w-[10%] min-w-[50px] md:min-w-[100px] mr-4 md:mr-0">
         <svg width="30" height="26" viewBox="0 0 30 26" fill="none">
           <path d="M11.5 0H0V26L11.5 0Z" fill="#FA0F00"/>
           <path d="M18.5 0H30V26L18.5 0Z" fill="#FA0F00"/>
@@ -44,8 +44,8 @@ export default function Navbar() {
       </Link>
 
       {/* Navigation */}
-      <nav className="flex-1 h-full flex justify-between items-center">
-        <div className="flex items-center gap-6 text-sm">
+      <nav className="flex-1 h-full flex justify-end md:justify-between items-center">
+        <div className="hidden md:flex items-center gap-6 text-sm">
           {navItems.map((item) => (
             <div key={item.key} className="relative">
               <button
@@ -62,8 +62,13 @@ export default function Navbar() {
           ))}
         </div>
 
-        <div className="flex items-center gap-5 mr-6">
-          <button className="p-2 hover:bg-gray-100 rounded-lg transition-colors duration-200 cursor-pointer">
+        <div className="flex items-center gap-3 md:gap-5 mr-2 md:mr-6">
+          <button className="md:hidden p-2 hover:bg-gray-100 rounded-lg transition-colors duration-200 cursor-pointer">
+            <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+          <button className="hidden md:block p-2 hover:bg-gray-100 rounded-lg transition-colors duration-200 cursor-pointer">
             <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6a8 8 0 0116 0v2a8 8 0 01-16 0V6z" />
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h4m8 0h4M4 10h16M4 14h16M4 18h16" />
@@ -71,7 +76,7 @@ export default function Navbar() {
           </button>
           <Link
             to="/auth"
-            className="border border-gray-400 rounded-full px-5 py-1 text-sm font-semibold text-adobe-gray hover:bg-gray-100 hover:border-gray-600 transition-all duration-200"
+            className="border border-gray-400 rounded-full px-4 py-1 md:px-5 md:py-1 text-sm font-semibold text-adobe-gray hover:bg-gray-100 hover:border-gray-600 transition-all duration-200 whitespace-nowrap"
           >
             Sign up
           </Link>
